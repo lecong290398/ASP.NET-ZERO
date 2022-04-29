@@ -1,4 +1,4 @@
-{
+﻿{
 "propertyTemplates":[
 		{
 			"placeholder" : "{{Property_Datetime_Init_Looped_Template_Here}}",

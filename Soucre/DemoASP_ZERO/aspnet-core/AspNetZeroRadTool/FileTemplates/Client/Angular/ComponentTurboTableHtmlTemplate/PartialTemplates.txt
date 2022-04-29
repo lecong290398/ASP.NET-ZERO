@@ -1,4 +1,4 @@
-{
+﻿{
 "propertyTemplates":[
 		{
 			"placeholder" : "{{Property_Looped_Header_Template_Here}}",

@@ -1,10 +1,10 @@
-# COMMON PATHS
+﻿# COMMON PATHS
 
 $buildFolder = (Get-Item -Path "./" -Verbose).FullName
 $slnFolder = Join-Path $buildFolder "../"
 $outputFolder = Join-Path $buildFolder "outputs"
-$webMvcFolder = Join-Path $slnFolder "src/MyCompanyName.AbpZeroTemplate.Web.Mvc"
-$webPublicFolder = Join-Path $slnFolder "src/MyCompanyName.AbpZeroTemplate.Web.Public"
+$webMvcFolder = Join-Path $slnFolder "src/LeCong.AbpZeroTemplate.Web.Mvc"
+$webPublicFolder = Join-Path $slnFolder "src/LeCong.AbpZeroTemplate.Web.Public"
 
 ## CLEAR ######################################################################
 
@@ -14,7 +14,7 @@ New-Item -Path $outputFolder -ItemType Directory
 ## RESTORE NUGET PACKAGES #####################################################
 
 Set-Location $slnFolder
-dotnet restore MyCompanyName.AbpZeroTemplate.Web.sln
+dotnet restore LeCong.AbpZeroTemplate.Web.sln
 
 ## PUBLISH WEB MVC PROJECT ####################################################
 

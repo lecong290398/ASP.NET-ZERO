@@ -1,4 +1,4 @@
-docker network rm mycompanyname.abpzerotemplate
+﻿docker network rm mycompanyname.abpzerotemplate
 
 docker network create mycompanyname.abpzerotemplate
 docker-compose -f docker-compose.infrastructure.yml up -d

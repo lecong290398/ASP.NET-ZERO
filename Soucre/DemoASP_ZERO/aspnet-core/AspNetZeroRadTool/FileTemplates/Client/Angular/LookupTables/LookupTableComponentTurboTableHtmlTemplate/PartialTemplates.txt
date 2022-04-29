@@ -1,4 +1,4 @@
-{
+﻿{
     "conditionalTemplates":[
         {
             "placeholder": "{{Portlet_Class_Here}}",
