@@ -1,0 +1,10 @@
+﻿@using Abp.Runtime.Session
+@using LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Models.Layout
+@using LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Views.Shared.Components.AppAreaLeCongLogo
+@model HeaderViewModel
+@{
+    Layout = null;
+}
+<a href="@Url.Action("Index", "Home", new {area = string.Empty})" target="_blank" class="brand-logo">
+    @await Component.InvokeAsync(typeof(AppAreaLeCongLogoViewComponent), new {logoSkin = "dark-sm"})
+</a>

@@ -1,0 +1,9 @@
+﻿@using LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Models.Layout
+@using LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Views.Shared.Components.AppAreaLeCongLogo
+@model HeaderViewModel
+@{
+    Layout = null;
+}
+<a href="@Url.Action("Index", "Home", new {area = string.Empty})" class="light brand-logo">
+    @await Component.InvokeAsync(typeof(AppAreaLeCongLogoViewComponent), new {LogoSkin = "dark-sm", logoClass = "max-h-30px"})
+</a>

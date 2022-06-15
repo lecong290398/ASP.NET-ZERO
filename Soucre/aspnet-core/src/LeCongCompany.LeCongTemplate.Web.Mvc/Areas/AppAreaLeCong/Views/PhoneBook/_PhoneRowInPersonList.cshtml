@@ -1,0 +1,10 @@
+﻿@model LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Models.Person.PhoneRowInPersonListViewModel
+<tr data-phone-id="@Model.Phone.Id">
+    <td>
+        <button class="btn btn-sm default button-delete-phone">
+            <i class="la la-trash"></i>
+        </button>
+    </td>
+    <td>@Model.GetPhoneTypeAsString()</td>
+    <td>@Model.Phone.Number</td>
+</tr>

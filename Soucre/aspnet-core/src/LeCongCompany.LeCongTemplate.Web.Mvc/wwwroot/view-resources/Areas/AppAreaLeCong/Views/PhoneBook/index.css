@@ -1,0 +1,15 @@
+#AllPeopleList .list-group-item-heading span.person-buttons {
+  float: right;
+}
+#AllPeopleList .table-phones {
+  display: none;
+}
+#AllPeopleList .person-editing {
+  background-color: #ccffcc;
+}
+#AllPeopleList .person-editing h4 {
+  font-weight: bold;
+}
+#AllPeopleList .person-editing .table-phones {
+  display: table;
+}

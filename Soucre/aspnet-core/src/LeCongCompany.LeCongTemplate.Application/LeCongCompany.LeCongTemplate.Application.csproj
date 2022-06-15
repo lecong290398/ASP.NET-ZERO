@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props"></Import>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>LeCongCompany.LeCongTemplate.Application</AssemblyName>
+    <PackageId>LeCongCompany.LeCongTemplate.Application</PackageId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>LeCongCompany.LeCongTemplate</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp.EntityFrameworkCore.EFPlus" Version="6.5.0" />
+    <PackageReference Include="NPOI" Version="2.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LeCongCompany.LeCongTemplate.Application.Shared\LeCongCompany.LeCongTemplate.Application.Shared.csproj" />
+    <ProjectReference Include="..\LeCongCompany.LeCongTemplate.Core\LeCongCompany.LeCongTemplate.Core.csproj" />
+    <ProjectReference Include="..\LeCongCompany.LeCongTemplate.EntityFrameworkCore\LeCongCompany.LeCongTemplate.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

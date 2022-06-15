@@ -1,0 +1,5 @@
+﻿@using LeCongCompany.LeCongTemplate.UiCustomization.Dto
+@{
+    UiCustomizationSettingsDto theme = await GetTheme();
+    Layout = "~/Areas/AppAreaLeCong/Views/Layout/" + theme.BaseSettings.Theme + "/_Layout.cshtml";
+}

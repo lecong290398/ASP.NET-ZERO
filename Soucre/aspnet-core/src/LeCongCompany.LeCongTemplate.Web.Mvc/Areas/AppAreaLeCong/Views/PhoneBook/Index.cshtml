@@ -1,0 +1,127 @@
+﻿
+@using System.Threading.Tasks
+@using LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Startup
+@using LeCongCompany.LeCongTemplate.Authorization
+@{
+    ViewBag.CurrentPageName = AppAreaLeCongPageNames.Tenant.PhoneBook;
+}
+@model LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Models.Person.IndexViewModel
+
+@section Scripts
+{
+    <environment names="Development">
+        <script src="~/view-resources/Areas/AppAreaLeCong/Views/PhoneBook/_CreatePersonModal.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Areas/AppAreaLeCong/Views/PhoneBook/Index.js" asp-append-version="true"></script>
+    </environment>
+}
+
+
+@section Styles
+{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/view-resources/Areas/AppAreaLeCong/Views/PhoneBook/Index.css" asp-append-version="true" />
+    </environment>
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <abp-page-subheader title="@L("PhoneBook")" description="@L("PhoneBook")">
+
+        @if (IsGranted(AppPermissions.Pages_PhoneBook_CreatePerson))
+        {
+
+            <button id="CreateNewPersonButton" class="btn btn-primary"><i class="fa fa-plus"></i> @L("CreateNewPerson")</button>
+        }
+    </abp-page-subheader>
+
+
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    @L("AllPeople") (@Model.Items.Count)
+                </h3>
+            </div>
+            <div class="kt-portlet__head-toolbar">
+                <div class="kt-portlet__head-actions">
+                    <form action="@Url.Action("Index")" method="GET">
+                        <div class="input-group">
+                            <input id="FilterPeopleText" name="Filter" value="@Model.Filter" class="form-control"
+                                   placeholder="@L("SearchWithThreeDot")" type="text">
+                            <span class="input-group-btn">
+                                <button id="FilterPeopleButton" class="btn default btn-success" type="submit">
+                                    <i class="la la-search-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <div class="portlet light">
+                <div class="portlet-body">
+
+                    <div id="AllPeopleList" class="list-group">
+                        @foreach (var person in Model.Items)
+                        {
+                            <a href="javascript:;" class="list-group-item" data-person-id="@person.Id">
+                                <h4 class="list-group-item-heading">
+                                    @person.Name @person.Surname
+
+                                    <span class="person-buttons">
+                                        <button title="@L("Edit")" class="btn btn-circle btn-icon-only green edit-person">
+                                            <i class="la la-pencil"></i>
+                                        </button>
+                                        @if (IsGranted(AppPermissions.Pages_PhoneBook_DeletePerson))
+                                        {
+                                            <button title="@L("Delete")" class="btn btn-circle btn-icon-only red delete-person" href="javascript:;">
+                                                <i class="la la-trash"></i>
+                                            </button>
+                                        }
+                                    </span>
+                                </h4>
+                                <p class="list-group-item-text">
+                                    @person.EmailAddress
+                                </p>
+                                <div class="table-scrollable table-phones">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%"></th>
+                                                <th style="width:15%">@L("Type")</th>
+                                                <th style="width:75%">@L("PhoneNumber")</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var phone in person.Phones)
+                                            {
+                                                @Html.Partial("_PhoneRowInPersonList",
+                                               new LeCongCompany.LeCongTemplate.Web.Areas.AppAreaLeCong.Models.Person.PhoneRowInPersonListViewModel(phone))
+                                            }
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-sm green button-save-phone">
+                                                        <i class="la la-floppy-o"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <select name="Type">
+                                                        <option value="0">@L("PhoneType_Mobile")</option>
+                                                        <option value="1">@L("PhoneType_Home")</option>
+                                                        <option value="2">@L("PhoneType_Business")</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="text" name="Number" /></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
